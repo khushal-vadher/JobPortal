@@ -11,9 +11,11 @@ app.use(express.json())
 
 app.use(cors());
 
-const userRoutes = require('./routes/user.js');
+const userRoutes = require('./routes/user');
+const employeeRoutes = require('./routes/employee');
 
 app.use(userRoutes);
+app.use(employeeRoutes);
 
 
 const port =process.env.port;

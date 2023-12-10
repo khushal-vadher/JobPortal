@@ -1,5 +1,4 @@
 const dotenv=require("dotenv");
-const mongoose =require('mongoose');
 var cors = require('cors')
 
 const express=require('express');
@@ -12,10 +11,13 @@ app.use(express.json())
 
 app.use(cors());
 
+const userRoutes = require('./routes/user.js');
+
+app.use(userRoutes);
+
 
 const port =process.env.port;
 
 app.listen(port,()=>{
 console.log(`server is running on ${port} port`);
 })
-console.log("moanan")

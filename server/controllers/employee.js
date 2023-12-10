@@ -10,9 +10,7 @@ exports.register = async function (req, res) {
   } = req.body;
   // console.log(username)
   try {
-    // const userexit = await employeeSchema.findOne({
-    //   email: email
-    // });
+    
     const companynameexist = await employeeSchema.findOne({
       companyname: companyname
     });

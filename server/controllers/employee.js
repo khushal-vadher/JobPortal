@@ -1,7 +1,6 @@
 const employeeSchema = require('../models/employee');
 const bcrypt = require("bcryptjs");
 exports.register = async function (req, res) {
-  console.log("hello jay")
   const {
     name,
     companyname,
@@ -43,7 +42,6 @@ exports.register = async function (req, res) {
 
 
 exports.auth = async function (req, res) {
-  console.log("hello login")
   const {
     email,
     password,
@@ -57,7 +55,7 @@ exports.auth = async function (req, res) {
 
     if (!employeelogin) {
       return res.status(400).json({
-        error: "invailad crenteidatisl"
+        error: "invalid crenteidatials"
       });
     } else {
       console.log(employeelogin.password);
@@ -70,10 +68,8 @@ exports.auth = async function (req, res) {
         });
       } else {
         console.log("genrate employee");
-        // token = await employeelogin.generateAuthToken();
         const obj = {
           message: "user sucesfully",
-          // token: token,
           loginemployee: employeelogin,
         };
 

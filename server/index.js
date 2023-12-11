@@ -14,11 +14,12 @@ app.use(cors());
 const userRoutes = require('./routes/user');
 const employeeRoutes = require('./routes/employee');
 const jobpostRoutes = require('./routes/jobpost');
+const resumeRoutes = require('./routes/resume');
 
 app.use(userRoutes);
 app.use(employeeRoutes);
 app.use(jobpostRoutes);
-
+app.use(resumeRoutes);
 
 const port =process.env.port;
 

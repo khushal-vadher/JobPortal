@@ -10,6 +10,9 @@ import Resume from "./Component/Resume/Resume"
 import Jobpost from "./Component/Jobpost"
 import Joblist from "./Component/Joblist"
 import Jobdetails from './Component/Jobdetails';
+import EmployeeProfile from './Component/EmployeeProfile';
+import Employeerprofile from "./Component/Employeerprofile"
+import Contact from './Component/Contact/contact';
 
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
 function App() {
@@ -31,6 +34,9 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/skill" element={<Skill />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path='/employeerprofile' element={<Employeerprofile />} />
+          <Route path="/employeeprofile" element={<EmployeeProfile />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </div>

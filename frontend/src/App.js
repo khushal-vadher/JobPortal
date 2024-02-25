@@ -7,6 +7,10 @@ import Education from "./Component/Resume/Education"
 import Experience from "./Component/Resume/Experience"
 import Skill from "./Component/Resume/Skill"
 import Resume from "./Component/Resume/Resume"
+import Jobpost from "./Component/Jobpost"
+import Joblist from "./Component/Joblist"
+import Jobdetails from './Component/Jobdetails';
+
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
 function App() {
   const user = JSON.parse(localStorage.getItem("userbool"));
@@ -19,6 +23,9 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/jobdetails" element={<Jobdetails />} />
+          <Route path="/postjob" element={<Jobpost />} />
+          <Route path='/joblist' exact element={<Joblist />} />
           <Route path='/personaldetail' element={<Personaldetail />} />
           <Route path="/education" element={<Education />} />
           <Route path="/experience" element={<Experience />} />

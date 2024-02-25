@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbarone from './../Navbarone'
+// import Navbarone from './../Navbarone'
+import Navbarone from '../Navbar/index'
 // toast.configure()
 
 const Index = () => {

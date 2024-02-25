@@ -6,29 +6,26 @@ const resumeskills = require('../models/skills')
 exports.personaldetail = async (req, res) => {
     console.log("for personal data")
     try {
-        const { Firstname, Lastname, Email, City, Country, Pincode, Mobile } = req.body;
-        // console.log(req.body);
-        // console.log(Email)
+        const { fname, lname, email, city, country, pincode, mobile } = req.body;
+        // console.log(email)
         //saving a new user account to database
         const detail = new resumepersonaldetail({
-            Firstname: Firstname,
-            Lastname: Lastname,
-            Email: Email,
-            City: City,
-            Country: Country,
-            Pincode: Pincode,
-            Mobile: Mobile
-        });
-        console.log(detail);
+            Firstname: fname,
+            Lastname: lname,
+            Email: email,
+            City: city,
+            Country: country,
+            Pincode: pincode,
+            Mobile: mobile
+        })
         // console.log(detail._id)
         let msg = await detail.save();
         console.log(msg)
 
-        // return res.status(200).json({
-        //     message: "personaldetail register"
-        // });
+        return res.status(200).json({
+            message: "personaldetail register"
+        });
 
-        return res.status(200).json(detail)
     }
     catch (err) {
         console.log(err);
@@ -38,15 +35,15 @@ exports.personaldetail = async (req, res) => {
 exports.education = async function (req, res) {
     try {
 
-        const { Email, SchoolName, CollageName, Qualification, YearOfGraduation } = req.body;
-        // console.log(Email)
+        const { email, schoolname, collagename, qualification, yearofgraduation } = req.body;
+        // console.log(email)
         //saving a new user account to database
         const detail = new resumeeducation({
-            Email: Email,
-            SchoolName: SchoolName,
-            CollageName: CollageName,
-            Qualification: Qualification,
-            YearOfGraduation: YearOfGraduation,
+            Email: email,
+            SchoolName: schoolname,
+            CollageName: collagename,
+            Qualification: qualification,
+            YearOfGraduation: yearofgraduation,
 
         })
         // console.log(detail._id)
@@ -63,14 +60,14 @@ exports.education = async function (req, res) {
 exports.experience = async function (req, res) {
     try {
 
-        const { Email, jobtype, workedat, jobcity, StartDate, EndDate } = req.body;
+        const { email, jobtype, workedat, jobcity, startdate, enddate } = req.body;
         const experiencedetails = new resumeexperience({
-            Email: Email,
+            Email: email,
             jobType: jobtype,
             workedAt: workedat,
             jobcity: jobcity,
-            StartDate: StartDate,
-            EndDate: EndDate
+            StartDate: startdate,
+            EndDate: enddate
         })
         await experiencedetails.save();
         return res.status(200).json({
@@ -85,9 +82,9 @@ exports.experience = async function (req, res) {
 
 exports.skill = async function (req, res) {
     try {
-        const { Email, Java, Python, React, ASPNET, dbms } = req.body;
+        const { email, Java, Python, React, ASPNET, dbms } = req.body;
         const skilldetail = new resumeskills({
-            Email: Email,
+            Email: email,
             Skills: {
                 skill1: Java,
                 skill2: Python,
@@ -109,22 +106,22 @@ exports.skill = async function (req, res) {
 
 exports.resume = async function (req, res) {
     console.log("Resume Display")
-    const { Email } = req.body
-    // console.log(Email)
+    const { email } = req.body
+    // console.log(email)
     const education = await resumeeducation.find({
-        Email: Email
+        Email: email
     });
     console.log(education)
     const personaldetail = await resumepersonaldetail.find({
-        Email: Email
+        Email: email
     });
     console.log(personaldetail)
     const experience = await resumeexperience.find({
-        Email: Email
+        Email: email
     });
     console.log(experience)
     const skill = await resumeskills.find({
-        Email: Email
+        Email: email
     });
     console.log(skill)
 

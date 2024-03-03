@@ -13,7 +13,7 @@ import Jobdetails from './Component/Jobdetails';
 import EmployeeProfile from './Component/EmployeeProfile';
 import Employeerprofile from "./Component/Employeerprofile"
 import Contact from './Component/Contact/contact';
-
+import PageNotFound from './Component/PageNotFound/index'
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
 function App() {
   const user = JSON.parse(localStorage.getItem("userbool"));
@@ -37,6 +37,8 @@ function App() {
           <Route path='/employeerprofile' element={<Employeerprofile />} />
           <Route path="/employeeprofile" element={<EmployeeProfile />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<PageNotFound />} />
+
         </Routes>
       </BrowserRouter>
     </div>

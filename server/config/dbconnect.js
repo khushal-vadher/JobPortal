@@ -1,4 +1,4 @@
-const mongoose = require("mongoos de");
+const mongoose = require("mongoose");
 
 const DB = process.env.DATABASE;
 
